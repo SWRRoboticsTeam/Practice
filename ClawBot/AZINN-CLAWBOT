@@ -1,0 +1,6 @@
+task main()
+{
+	//// SWR Template Code for RVW Clawbot Build
+	// Platform Type: VEX 2.0 Cortex
+	// Communication Mode: Vexnet
+}
