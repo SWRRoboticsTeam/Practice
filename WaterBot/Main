@@ -1,1 +1,20 @@
+// left motor [Lmotor] 1
+// right motor [Rmotor] 12
+// sholder joint motor [Smotor] 2
+// elbow joint motor [Emotor] 3
+// wrist joint motor [Wmotor] 4
+// claw motor [Cmotor] 5
+// switch on claw [Cswitch] 1
+
+task main()
+{
+
+
+
+
+}
+
+
+
+
 
