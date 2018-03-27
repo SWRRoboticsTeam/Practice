@@ -77,7 +77,7 @@ task main()
 	
 	motor[leftMotor] = 40;
 	motor[rightMotor] = -40;
-	wait1Msec(2500);
+	wait1Msec(2750);
 	
 	motor[leftMotor] = 0;
 	motor[rightMotor] = 0;
