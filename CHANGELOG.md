@@ -25,6 +25,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ****
 ## Released
+
+## 2.0.0 2018-05-09
+### Removed
+- Stale branches and files in preperation of the 2018-2019 season
+
 ## 1.0.0 2017-12-11
 ### Added
 - Full range of motion in all functions of the clawbot
