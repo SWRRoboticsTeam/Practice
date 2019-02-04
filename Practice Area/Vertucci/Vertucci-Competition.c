@@ -13,6 +13,11 @@
 //Main competition background code...do not modify!
 #include "Vex_Competition_Includes.c"
 
+//Motor CONFIGURATION
+#pragma config(Motor,  port2,           rightMotor,    tmotorNormal, openLoop, reversed)
+#pragma config(Motor,  port3,           leftMotor,     tmotorNormal, openLoop)
+
+
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
 /*                                                                           */
@@ -49,15 +54,35 @@ void pre_auton()
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-task autonomous()
-{
-  // ..........................................................................
-  // Insert user code here.
-  // ..........................................................................
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  // Remove this function call once you have "real" code.
-  AutonomousCodePlaceholderForTesting();
-}
+task autonomous()
+
+{
+	wait1Msec(2000);						  // Robot waits for 2000 milliseconds before executing program
+
+	// Move forward at half power for 1.5 seconds
+	motor[rightMotor] = 63;			  // Motor on port2 is run at half (63) power forward
+	motor[leftMotor]  = 63;			  // Motor on port3 is run at half (63) power forward
+	wait1Msec(1500);				      // Robot runs previous code for 1500 milliseconds before moving on
+
+	// Brake for 1 second
+	motor[rightMotor] = 0;				// Motor on port2 is run at half (63) power forward
+	motor[leftMotor]  = 0;				// Motor on port3 is run at half (63) power reverse
+	wait1Msec(1000);				      // Robot runs previous code for 1000 milliseconds before moving on
+
+	// Move reverse at half power for 1.5 seconds
+	motor[rightMotor] = -63;			// Motor on port2 is run at half (63) power forward
+	motor[leftMotor]  = -63;			// Motor on port3 is run at half (63) power reverse
+	wait1Msec(1500);				      // Robot runs previous code for 1500 milliseconds before moving on
+
+	// Turn left at full power for 0.75 seconds
+	motor[rightMotor] = 127;			// Motor on port2 is run at full (127) power forward
+	motor[leftMotor]  = -127;		  // Motor on port3 is run at full (-127) power reverse
+	wait1Msec(750);					      // Robot runs previous code for 750 milliseconds before moving on
+}													      // Program ends, and the robot stops
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -69,22 +94,17 @@ task autonomous()
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 task usercontrol()
 {
   // User control code here, inside the loop
+	while (1 == 1)									  //Creates and infinite loop
+	{
+		motor[port2] = vexRT(Ch2);		  //The right motor is set to equal the value transmitted by Ch2 (y-axis of the right joystick)
+		motor[port3] = vexRT(Ch3);		  //The left motor is set to equal the value transmitted by Ch3 (y-axis of the left joystick)
+	}
 
-  while (true)
-  {
-    // This is the main execution loop for the user control program.
-    // Each time through the loop your program should update motor + servo
-    // values based on feedback from the joysticks.
-
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
-
-    // Remove this function call once you have "real" code.
-    UserControlCodePlaceholderForTesting();
-  }
 }
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
