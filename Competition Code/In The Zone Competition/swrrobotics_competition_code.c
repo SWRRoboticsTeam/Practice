@@ -1,17 +1,6 @@
-#pragma config(Sensor, I2C_1,  rightIME,       sensorNone)
-#pragma config(Sensor, I2C_2,  leftIME,        sensorNone)
-#pragma config(Sensor, I2C_3,  armIME,         sensorNone)
-#pragma config(Motor,  port2,           rightWheel,    tmotorVex393HighSpeed_MC29, openLoop, reversed)
-#pragma config(Motor,  port3,           rightTred,     tmotorVex393HighSpeed_MC29, openLoop, reversed)
-#pragma config(Motor,  port4,           leftTred,      tmotorVex393HighSpeed_MC29, openLoop)
-#pragma config(Motor,  port6,           clawOpen,      tmotorVex393HighSpeed_MC29, openLoop)
-#pragma config(Motor,  port7,           bottomArm,     tmotorVex393HighSpeed_MC29, openLoop)
-#pragma config(Motor,  port8,           topArm,        tmotorVex393HighSpeed_MC29, openLoop)
-#pragma config(Motor,  port9,           leftWheel,     tmotorVex393HighSpeed_MC29, openLoop)
-
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
-/*        Description: Competition template for VEX EDR                      */
+/*        Description: SWRRobotics Competition Code for VEX EDR              */
 /*                                                                           */
 /*---------------------------------------------------------------------------*/
 
@@ -20,6 +9,9 @@
 
 // Select Download method as "competition"
 #pragma competitionControl(Competition)
+
+#pragma autonomousDuration(20)
+#pragma userControlDuration(120)
 
 //Main competition background code...do not modify!
 #include "Vex_Competition_Includes.c"
@@ -86,41 +78,16 @@ task usercontrol()
 
   while (true)
   {
+    // This is the main execution loop for the user control program.
+    // Each time through the loop your program should update motor + servo
+    // values based on feedback from the joysticks.
 
-while(1==1){
+    // ........................................................................
+    // Insert user code here. This is where you use the joystick values to
+    // update your motors, etc.
+    // ........................................................................
 
-	//Movement
-	motor[leftWheel] = vexRT[Ch3];
-	motor[leftTred] = vexRT[Ch3];
-	motor[rightWheel] = vexRT[Ch2];
-	motor[rightTred] = vexRT[Ch2];
-
-	//Claw & Arm Controls
-
-	if(vexRT[Btn6U]){
-	motor[clawOpen] = 127;
-}
-else if(vexRT[Btn6D]){
-	motor[clawOpen] = -127;
-}
-else{
-	motor[clawOpen] = 0;
-}
-
-	if(vexRT[Btn5U]){
-	motor[topArm] = 127;
-	motor[bottomArm] = 127;
-}
-else if(vexRT[Btn5D]){
-	motor[topArm] = -127;
-	motor[bottomArm] = -127;
-}
-else{
-	motor[topArm] = 0;
-	motor[bottomArm] = 0;
-}
-
-
-}
-}
+    // Remove this function call once you have "real" code.
+    UserControlCodePlaceholderForTesting();
   }
+}
