@@ -31,6 +31,6 @@ task main()
 	// Move forward at full power for 3 seconds
 	motor[rightMotor] = 127;		  // Motor on port2 is run at full (127) power forward
 	motor[leftMotor]  = 127;		  // Motor on port3 is run at full (127) power forward
-	wait1Msec(600000);			        // Robot runs previous code for 600000 milliseconds before moving on
+	wait1Msec(10000);			        // Robot runs previous code for 10000 milliseconds before moving on
 }												        // Program ends, and the robot stops
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
